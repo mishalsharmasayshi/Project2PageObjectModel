@@ -38,6 +38,7 @@ public class Page {
 	protected static ExtentReports rep = ExtentManager.createExtentInstance();
 	protected static ThreadLocal<ExtentTest> testThread = new ThreadLocal<ExtentTest>();
 	protected static TopMenu tm;
+	private String tempBrowser;
 
 	protected Page() {
 		String configPath = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main"
@@ -53,7 +54,14 @@ public class Page {
 		}
 
 		if (driver == null) {
-
+            
+			if(System.getenv("browser")!=null || !System.getenv("browser").isEmpty()) {
+				tempBrowser=System.getenv("browser");
+			}else {
+				tempBrowser=config.getProperty("browser");
+			}
+			config.setProperty("browser",tempBrowser);
+			
 			if (config.getProperty("browser").equalsIgnoreCase("chrome")) {
 				path = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main"
 						+ File.separator + "resources" + File.separator + "executables" + File.separator
