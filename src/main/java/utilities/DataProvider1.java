@@ -13,7 +13,7 @@ import pages.Page;
 public class DataProvider1 extends Page {
 
 	
-
+    
 	@DataProvider(name = "dp1")
 	public Object[][] getData(Method m) { // Object[][]
 		String sheetName = m.getName();

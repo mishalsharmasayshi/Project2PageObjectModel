@@ -96,16 +96,16 @@ public class Page {
 	public static WebElement getElement(String loc) {
 		try {
 			if (loc.endsWith("_CSS")) {
-				System.out.println("hello2");
-				System.out.println(driver.findElement(By.cssSelector(OR.getProperty(loc))));
+				testThread.get().info("Element for locator "+loc+" found");
+				log.info("Element for locator "+loc+" found");
 				return driver.findElement(By.cssSelector(OR.getProperty(loc)));
 			} else if (loc.endsWith("_XPATH")) {
-				System.out.println("hello1");
-				System.out.println(driver.findElement(By.xpath(OR.getProperty(loc))));
+				testThread.get().info("Element for locator "+loc+" found");
+				log.info("Element for locator "+loc+" found");
 				return driver.findElement(By.xpath(OR.getProperty(loc))); // if cannot find will throw exception
 			} else if (loc.endsWith("_ID")) {
-				System.out.println("hello3");
-				System.out.println(driver.findElement(By.id(OR.getProperty(loc))));
+				testThread.get().info("Element for locator "+loc+" found");
+				log.info("Element for locator "+loc+" found");
 				return driver.findElement(By.id(OR.getProperty(loc)));
 			}
 			log.info("Type of locator not handled :" + loc + "Please provide CSS,XPATH OR ID");
@@ -168,6 +168,8 @@ public class Page {
 
 	public static void quit() {
 		if (driver != null) {
+			testThread.get().info("Closed the application after execution");
+			log.info("Closed the application after execution");
 			driver.quit();
 		}
 	}

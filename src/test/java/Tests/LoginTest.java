@@ -2,12 +2,14 @@ package Tests;
 
 import java.util.Hashtable;
 
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.Test;
 
 import base.Base;
 import pages.HomePage;
 import pages.LandingPage;
 import pages.LoginPage;
+import pages.Page;
 import pages.crmPages.ZohoCRMHomepage;
 import utilities.DataProvider1;
 
@@ -21,5 +23,10 @@ public class LoginTest extends Base{
 		ZohoCRMHomepage zCrmPage = hPage.clickCrm();
 		zCrmPage.signOut();
 		
+	}
+	
+	@AfterSuite
+	public void closeApp() {
+		Page.quit();
 	}
 }
