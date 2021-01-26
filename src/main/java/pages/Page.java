@@ -166,7 +166,7 @@ public class Page {
 
 	}
 
-	public static void quit() {
+	public static void quitApp() {
 		if (driver != null) {
 			testThread.get().info("Closed the application after execution");
 			log.info("Closed the application after execution");

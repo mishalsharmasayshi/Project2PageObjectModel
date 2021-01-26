@@ -27,6 +27,6 @@ public class LoginTest extends Base{
 	
 	@AfterSuite
 	public void closeApp() {
-		Page.quit();
+		Page.quitApp();
 	}
 }
