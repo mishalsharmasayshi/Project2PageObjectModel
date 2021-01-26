@@ -6,6 +6,6 @@ import pages.Page;
 public class Base {
     @AfterSuite
 	public void tearDown() {
-		Page.quit();
+    	Page.quitApp();
 	}
 }
